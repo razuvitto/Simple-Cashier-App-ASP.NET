@@ -1,0 +1,104 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "Invoice";
+}
+
+<p>
+    @Html.ActionLink("Transaction","PrintInvoice")
+</p>
+
+<br />
+<br />
+<!-- Invoice area Start-->
+<div class="invoice-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="invoice-wrap">
+                    <div class="invoice-img">
+                        <div class="invoice-hs">
+                            <h2 style="font-size:32px">Sistem Informasi Toko Komputer</h2>
+                        </div>
+                    </div>
+                    <div class="invoice-hds-pro">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="invoice-hs">
+                                <span>Invoice From :</span>
+                                <h2 style="height:35px">@Session["username"] | Admin Toko Komputer</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="invoice-hs date-inv sm-res-mg-t-30 tb-res-mg-t-30 tb-res-mg-t-0">
+                                <span>Alamat</span>
+                                <h2 style="height:35px">Jl. Sisingamangaraja, Balige, Indonesia</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="invoice-hs wt-inv sm-res-mg-t-30 tb-res-mg-t-30 tb-res-mg-t-0">
+                                <span>Telepon</span>
+                                <h2 style="height:35px">061 - 4143432</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="invoice-hs gdt-inv sm-res-mg-t-30 tb-res-mg-t-30 tb-res-mg-t-0">
+                                <span>Email</span>
+                                <h2 style="height:35px">tokokomputer@gmail.com</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="invoice-sp">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Transaction Number</th>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>@Model.Rows[0][0]</td>
+                                            <td>@Model.Rows[0][1]</td>
+                                            <td>Rp. @Model.Rows[0][2]</td>
+                                            <td>@Model.Rows[0][3] unit(s)</td>
+                                            <td>Rp. @Model.Rows[0][4]</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="invoice-ds-int">
+                                <h2>Remarks</h2>
+                                <p>Ornare non tortor. Nam quis ipsum vitae dolor porttitor interdum. Curabitur faucibus erat vel ante fermentum lacinia. Integer porttitor laoreet suscipit. Sed cursus cursus massa ut pellentesque. Phasellus vehicula dictum arcu, eu interdum massa bibendum. Ornare non tortor. Nam quis ipsum vitae dolor porttitor interdum. Curabitur faucibus erat vel ante fermentum lacinia. Integer porttitor laoreet suscipit. Sed cursus cursus massa ut pellentesque. Phasellus vehicula dictum arcu, eu interdum massa bibendum. </p>
+                            </div>
+                            <div class="invoice-ds-int invoice-last">
+                                <h2>Notika For Your Business</h2>
+                                <p class="tab-mg-b-0">Ornare non tortor. Nam quis ipsum vitae dolor porttitor interdum. Curabitur faucibus erat vel ante fermentum lacinia. Integer porttitor laoreet suscipit. Sed cursus cursus massa ut pellentesque. Phasellus vehicula dictum arcu, eu interdum massa bibendum. Ornare non tortor. Nam quis ipsum vitae dolor porttitor interdum. Curabitur faucibus erat vel ante fermentum lacinia. Integer porttitor laoreet suscipit. Sed cursus cursus massa ut pellentesque. Phasellus vehicula dictum arcu, eu interdum massa bibendum. </p>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Invoice area End-->
+<br />

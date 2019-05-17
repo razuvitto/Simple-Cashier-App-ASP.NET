@@ -1,0 +1,71 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "Details";
+}
+<br /><br />
+<!-- Breadcomb area Start-->
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="breadcomb-wp">
+                                <div class="breadcomb-icon">
+                                    <i class="notika-icon notika-windows"></i>
+                                </div>
+                                <div class="breadcomb-ctn">
+                                    <h2>Detail Product</h2>
+                                    <p>Sistem Informasi Toko Komputer</p>
+                                    <br />
+                                    <a href="@Url.Action("Index", "Product")">
+                                        <button class="btn btn-success notika-btn-success">Back</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                            <div class="breadcomb-report">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcomb area End-->
+<!-- Normal Table area Start-->
+<div class="normal-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="normal-table-list">
+                    <div class="bsc-tbl">
+                        <table class="table table-sc-ex">
+                            <thead>
+                                <tr>
+                                    <th>Transaction Name</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Model.Rows[0][1]</td>
+                                    <td>Rp. @Model.Rows[0][2]</td>
+                                    <td>@Model.Rows[0][3] unit(s)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Normal Table area End-->
+<br /><br /><br /><br /><br /><br /><br /><br /><br />

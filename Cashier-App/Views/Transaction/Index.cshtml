@@ -1,0 +1,295 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<br /><br />
+@if (Convert.ToInt32(Session["role"]) == 1)
+{
+    <!-- Start Status area -->
+    <div class="notika-status-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+
+                            @for (int m = 0; m < Model.Table4.Rows.Count; m++)
+                            {
+                                <h2><span class="counter">@Model.Table4.Rows[m]["Total_Transaction"]</span></h2>
+                                <p>Total Transaction</p>
+                            }
+
+                        </div>
+                        <div class="sparkline-bar-stats1">9,4,8,6,5,6,4,8,3,5,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            @for (int n = 0; n < Model.Table5.Rows.Count; n++)
+                            {
+                                <h2><span class="counter">@Model.Table5.Rows[n]["TotalProduct"]</span>&nbsp;Item    (s)</h2>
+                                <p>Total Product</p>
+                            }
+                        </div>
+                        <div class="sparkline-bar-stats2">1,4,8,3,5,6,4,8,3,3,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            @for (int i = 0; i < Model.Table8.Rows.Count; i++)
+                            {
+                                <h2>Rp.&nbsp;<span class="counter">@Model.Table8.Rows[i]["all_income"]</span></h2>
+                                <p>Total Sales</p>
+                            }
+                        </div>
+                        <div class="sparkline-bar-stats3">4,2,8,2,5,6,3,8,3,5,9,5</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="wb-traffic-inner notika-shadow sm-res-mg-t-30 tb-res-mg-t-30 dk-res-mg-t-30">
+                        <div class="website-traffic-ctn">
+                            @for (int i = 0; i < Model.Table9.Rows.Count; i++)
+                            {
+                                <h2><span class="counter">@Model.Table9.Rows[i]["TotalStock"]</span>&nbsp;pcs</h2>
+                                <p>Total Stock</p>
+                            }
+                        </div>
+                        <div class="sparkline-bar-stats4">2,4,8,4,5,7,4,7,3,5,7,5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Status area-->
+    <!-- Start Sale Statistic area-->
+    <div class="sale-statistic-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
+                    <div class="sale-statistic-inner notika-shadow mg-tb-30">
+                        <div class="curved-inner-pro">
+                            <div class="curved-ctn">
+                                <h2>Sales Statistics</h2>
+                                <p>Vestibulum purus quam scelerisque, mollis nonummy metus</p>
+                            </div>
+                        </div>
+                        <div id="dynamic-chart" class="flot-chart dyn-ctn-fr bar-hm-three"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+                    <div class="statistic-right-area notika-shadow mg-tb-30 sm-res-mg-t-0" style="height:419px">
+                        <div class="past-day-statis">
+                            <h2>Todays Transaction</h2>
+                            <p>This Information only shown based on todays data</p>
+                        </div>
+                        <div class="dash-widget-visits"></div>
+                        <br /><br />
+                        <div class="past-statistic-an">
+                            <div class="past-statistic-ctn">
+                                @for (int n = 0; n < Model.Table6.Rows.Count; n++)
+                                {
+                                    <h3><span class="counter">@Model.Table6.Rows[n]["TransactionToday"]</span></h3>
+                                    <p>Total Transaction</p>
+                                }
+                            </div>
+                            <div class="past-statistic-graph">
+                                <div class="stats-bar"></div>
+                            </div>
+                        </div>
+                        <div class="past-statistic-an">
+                            <div class="past-statistic-ctn">
+                                @for (int n = 0; n < Model.Table7.Rows.Count; n++)
+                                {
+                                    <h3>Rp.&nbsp;<span class="counter">@Model.Table7.Rows[n]["todays_income"]</span></h3>
+                                    <p>Total Sales Today</p>
+                                }
+                            </div>
+                            <div class="past-statistic-graph">
+                                <div class="stats-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sale Statistic area-->
+    <!-- Start Email Statistic area-->
+    <div class="notika-email-post-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="email-statis-inner notika-shadow">
+                        <div class="email-ctn-round">
+                            <div class="email-rdn-hd">
+                                <h2>Email Statistics</h2>
+                            </div>
+                            <div class="email-statis-wrap">
+                                <div class="email-round-nock">
+                                    <input type="text" class="knob" value="0" data-rel="55" data-linecap="round" data-width="130" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true">
+                                </div>
+                                <div class="email-ctn-nock">
+                                    <p>Total Emails Sent</p>
+                                </div>
+                            </div>
+                            <div class="email-round-gp">
+                                <div class="email-round-pro">
+                                    <div class="email-signle-gp">
+                                        <input type="text" class="knob" value="0" data-rel="75" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
+                                    </div>
+                                    <div class="email-ctn-nock">
+                                        <p>Bounce Rate</p>
+                                    </div>
+                                </div>
+                                <div class="email-round-pro">
+                                    <div class="email-signle-gp">
+                                        <input type="text" class="knob" value="0" data-rel="35" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
+                                    </div>
+                                    <div class="email-ctn-nock">
+                                        <p>Total Opened</p>
+                                    </div>
+                                </div>
+                                <div class="email-round-pro sm-res-ds-n lg-res-mg-bl">
+                                    <div class="email-signle-gp">
+                                        <input type="text" class="knob" value="0" data-rel="45" data-linecap="round" data-width="90" data-bgcolor="#E4E4E4" data-fgcolor="#00c292" data-thickness=".10" data-readonly="true" disabled>
+                                    </div>
+                                    <div class="email-ctn-nock">
+                                        <p>Total Ignored</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="recent-post-wrapper notika-shadow sm-res-mg-t-30 tb-res-ds-n dk-res-ds" style="height:402px">
+                        <div class="recent-post-ctn">
+                            <div class="recent-post-title">
+                                <h2>Warning Stock</h2>
+                            </div>
+                        </div>
+                        <div class="recent-post-items">
+                            @for (int l = 0; l < Model.Table3.Rows.Count; l++)
+                            {
+                                <div class="recent-post-signle">
+                                    <div class="recent-post-flex rct-pt-mg">
+                                        <div class="recent-post-img">
+                                            <i class="notika-icon notika-alarm"></i>
+                                        </div>
+                                        <div class="recent-post-it-ctn">
+                                            <h2>Stock : @Model.Table3.Rows[l]["Stock"] <span class="label label-danger">Warning</span> </h2>
+                                            <p>@Model.Table3.Rows[l]["ProductName"]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="recent-items-wp notika-shadow sm-res-mg-t-30">
+                        <div class="rc-it-ltd">
+                            <div class="recent-items-ctn">
+                                <div class="recent-items-title">
+                                    <h2>Best Seller</h2>
+                                </div>
+                            </div>
+                            <div class="recent-items-inn">
+                                <table class="table table-inner table-vmiddle">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th style="width: 60px">Count</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (int j = 0; j < Model.Table2.Rows.Count; j++)
+                                        {
+                                            <tr>
+                                                <td class="f-500 c-cyan">@Model.Table2.Rows[j][0]</td>
+                                                <td>@Model.Table2.Rows[j][2]</td>
+                                                <td class="f-500 c-cyan">@Model.Table2.Rows[j][1]</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="recent-items-chart" class="flot-chart-items flot-chart vt-ct-it tb-rc-it-res"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Email Statistic area-->
+    <br /><br />
+}
+<!-- Data Table area Start-->
+<div class="data-table-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="data-table-list">
+                    <div class="basic-tb-hd">
+                        <h2>All Transaction</h2>
+                        <p></p>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="data-table-basic" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Transaction Number</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Table1.Rows.Count; i++)
+                                {
+                                    <tr>
+                                        <td>@Model.Table1.Rows[i][1]</td>
+                                        <td>@Model.Table1.Rows[i][2]</td>
+                                        <td>@Model.Table1.Rows[i][3]</td>
+                                        <td>@Model.Table1.Rows[i][4]</td>
+                                        <td>@Model.Table1.Rows[i][5]</td>
+                                        <td>
+                                            <div class="btn-demo-notika">
+                                                <div class="notika-btn-hd">
+                                                    <a href="@Url.Action("Details", "Transaction", new { @id = Model.Table1.Rows[i][0] })">
+                                                        <button class="btn btn-block btn-success notika-btn-success">View Detail</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Data Table area End-->

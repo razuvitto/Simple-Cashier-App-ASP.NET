@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier-App</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- favicon
+       ============================================ -->
+    <link rel="shortcut icon" type="~/content/assets/image/x-icon" href="~/content/assets/img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/content/assets/css/owl.theme.css">
+    <link rel="stylesheet" href="~/content/assets/css/owl.transitions.css">
+    <!-- meanmenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/meanmenu/meanmenu.min.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/animate.css">
+    <!-- summernote CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/summernote/summernote.css">
+    <!-- Range Slider CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/themesaller-forms.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/normalize.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- jvectormap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/jvectormap/jquery-jvectormap-2.0.3.css">
+    <!-- notika icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/notika-custom-icon.css">
+    <!-- bootstrap select CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/bootstrap-select/bootstrap-select.css">
+    <!-- datapicker CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/datapicker/datepicker3.css">
+    <!-- Color Picker CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/color-picker/farbtastic.css">
+    <!-- Data Table JS
+    ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/jquery.dataTables.min.css">
+    <!-- notification CSS
+    ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/notification/notification.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/dropzone/dropzone.css">
+    <!-- wave CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/wave/waves.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/main.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/content/assets/css/responsive.css">
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/content/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#00c292; border-color:#00c292">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @if (Convert.ToInt32(Session["role"]) == 1)
+                {
+                    @Html.ActionLink("Cashier-App", "Index", "Transaction", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("Cashier-App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
+
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+
+                        @if (Session["id"] == null)
+                        {
+
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("All Transaction", "Index", "Transaction")</li>
+                            if (Convert.ToInt32(Session["role"]) == 1)
+                            {
+                                <li>@Html.ActionLink("All Product", "Index", "Product")</li>
+                                <li>@Html.ActionLink("Register", "Create", "User")</li>
+                            }
+                            else
+                            {
+                            }
+                        }
+                    </ul>
+                    <!--@Session["username"]-->
+                    @Html.Partial("_LoginPartial")
+
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+
+        @RenderBody()
+    <!-- Start Footer area-->
+                    <div class="footer-copyright-area">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="footer-copy-right">
+                                        <p>
+                                            Copyright © 2019 . All rights reserved | Sistem Informasi Toko Komputer</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- End Footer area-->
+
+
+                    @Scripts.Render("~/bundles/jquery")
+                    @Scripts.Render("~/bundles/bootstrap")
+                    @RenderSection("scripts", required: false)
+                    <!-- jquery
+                    ============================================ -->
+                    <script src="~/content/assets/js/vendor/jquery-1.12.4.min.js"></script>
+                    <!-- bootstrap JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/bootstrap.min.js"></script>
+                    <!-- wow JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/wow.min.js"></script>
+                    <!-- price-slider JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/jquery-price-slider.js"></script>
+                    <!-- owl.carousel JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/owl.carousel.min.js"></script>
+                    <!-- scrollUp JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/jquery.scrollUp.min.js"></script>
+                    <!-- meanmenu JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/meanmenu/jquery.meanmenu.js"></script>
+                    <!-- counterup JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/counterup/jquery.counterup.min.js"></script>
+                    <script src="~/content/assets/js/counterup/waypoints.min.js"></script>
+                    <script src="~/content/assets/js/counterup/counterup-active.js"></script>
+                    <!-- mCustomScrollbar JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+                    <!-- jvectormap JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+                    <script src="~/content/assets/js/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+                    <script src="~/content/assets/js/jvectormap/jvectormap-active.js"></script>
+                    <!-- sparkline JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/sparkline/jquery.sparkline.min.js"></script>
+                    <script src="~/content/assets/js/sparkline/sparkline-active.js"></script>
+                    <!-- flot JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/flot/jquery.flot.js"></script>
+                    <script src="~/content/assets/js/flot/jquery.flot.resize.js"></script>
+                    <script src="~/content/assets/js/flot/curvedLines.js"></script>
+                    <script src="~/content/assets/js/flot/flot-active.js"></script>
+                    <!-- knob JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/knob/jquery.knob.js"></script>
+                    <script src="~/content/assets/js/knob/jquery.appear.js"></script>
+                    <script src="~/content/assets/js/knob/knob-active.js"></script>
+                    <!-- Input Mask JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/jasny-bootstrap.min.js"></script>
+                    <!-- icheck JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/icheck/icheck.min.js"></script>
+                    <script src="~/content/assets/js/icheck/icheck-active.js"></script>
+                    <!-- rangle-slider JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+                    <script src="~/content/assets/js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+                    <script src="~/content/assets/js/rangle-slider/rangle-active.js"></script>
+                    <!-- datapicker JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/datapicker/bootstrap-datepicker.js"></script>
+                    <script src="~/content/assets/js/datapicker/datepicker-active.js"></script>
+                    <!-- bootstrap select JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/bootstrap-select/bootstrap-select.js"></script>
+                    <!--  color-picker JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/color-picker/farbtastic.min.js"></script>
+                    <script src="~/content/assets/js/color-picker/color-picker.js"></script>
+                    <!--  notification JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/notification/bootstrap-growl.min.js"></script>
+                    <script src="~/content/assets/js/notification/notification-active.js"></script>
+                    <!--  summernote JS
+                    ============================================ -->
+                    <script src="~/content/assets/js/summernote/summernote-updated.min.js"></script>
+                    <script src="~/content/assets/js/summernote/summernote-active.js"></script>
+                    <!-- dropzone JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/dropzone/dropzone.js"></script>
+                    <!--  wave JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/wave/waves.min.js"></script>
+                    <script src="~/content/assets/js/wave/wave-active.js"></script>
+                    <!--  chosen JS
+                    ============================================ -->
+                    <script src="~/content/assets/js/chosen/chosen.jquery.js"></script>
+                    <!--  todo JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/todo/jquery.todo.js"></script>
+                    <!-- plugins JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/plugins.js"></script>
+                    <!--  Chat JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/chat/moment.min.js"></script>
+                    <script src="~/content/assets/js/chat/jquery.chat.js"></script>
+                    <!-- Data Table JS
+                    ============================================ -->
+                    <script src="~/content/assets/js/data-table/jquery.dataTables.min.js"></script>
+                    <script src="~/content/assets/js/data-table/data-table-act.js"></script>
+                    <!-- main JS
+                        ============================================ -->
+                    <script src="~/content/assets/js/main.js"></script>
+                </body>
+</html>
